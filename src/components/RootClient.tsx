@@ -1,17 +1,17 @@
 "use client";
-import { ConsentProvider } from "@/components/Consent";
+import { ConsentProvider } from "@/consent";
 
 export default function RootClient({ children }: { children: React.ReactNode }) {
   return (
     <>
       <ConsentProvider
         config={{
-          languages: ["en", "pl"],
+          lang: "en",
           legalVersion: "2024-08-02",
           categories: {
-            necessary: { required: true },
-            analytics: { default: false },
-            marketing: { default: false },
+            necessary: { required: true, label: { en: "Necessary", pl: "Niezbędne" } },
+            analytics: { default: false, label: { en: "Analytics", pl: "Analityczne" } },
+            marketing: { default: false, label: { en: "Marketing", pl: "Marketingowe" } },
           },
           onUpdate: (s) => console.log("state", s),
         }}

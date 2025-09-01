@@ -1,7 +1,6 @@
-"use client";
-import { useConsent } from "@/lib/consent/useConsent";
+import { useConsent } from './useConsent';
 
-export default function ConsentWidget() {
+export default function Widget() {
   const { open, setOpen } = useConsent();
 
   if (open) return null;
